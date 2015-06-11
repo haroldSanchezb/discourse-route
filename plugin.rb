@@ -4,15 +4,15 @@
 # authors: haroldsanchezb
 
 after_initialize do
-	RouteController.class_eval do
-		skip_before_filter :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'redirect']
+	SessionController.class_eval do
+		skip_before_filter :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'route_redirect']
 
-		def redirect
-				redirect_to "/"
+		def route_redirect
+			redirect_to "/"
 		end
 	end
 
 	Discourse::Application.routes.append do
-		get "testing" => "route#redirect"
+		get "testing" => "session#route_redirect"
 	end
 end
