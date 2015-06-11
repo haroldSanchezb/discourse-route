@@ -9,7 +9,6 @@ after_initialize do
 
 		def redirect
 				redirect_to "/"
-			end
 		end
 	end
 
