@@ -4,7 +4,7 @@
 # authors: haroldsanchezb
 
 after_initialize do
-	DiscourseRouteController.class_eval do
+	TestingController.class_eval do
 		skip_before_filter :check_xhr, only: ['sso', 'sso_login', 'become', 'sso_provider', 'route_redirect']
 
 		def route_redirect
@@ -13,6 +13,6 @@ after_initialize do
 	end
 
 	Discourse::Application.routes.append do
-		get "testing" => "discourse_route#route_redirect"
+		get "testing" => "testing#route_redirect"
 	end
 end
